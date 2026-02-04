@@ -1,33 +1,18 @@
 #!/usr/bin/env python3
 
 def join_lists(l1, l2):
-    result = []
-    for item in l1:
-        if item not in result:
-            result.append(item)
-    for item in l2:
-        if item not in result:
-            result.append(item)
-    return result
+    # return a list that contains every value from both lists
+    return list(set(l1) | set(l2))
 
 
 def match_lists(l1, l2):
-    result = []
-    for item in l1:
-        if item in l2 and item not in result:
-            result.append(item)
-    return result
+    # return a list that contains all values found in both lists
+    return list(set(l1) & set(l2))
 
 
 def diff_lists(l1, l2):
-    result = []
-    for item in l1:
-        if item not in l2 and item not in result:
-            result.append(item)
-    for item in l2:
-        if item not in l1 and item not in result:
-            result.append(item)
-    return result
+    # return a list that contains all different values not shared between lists
+    return list(set(l1) ^ set(l2))
 
 
 if __name__ == '__main__':
